@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "393697283475",
+    "project_id": "usuarios-fire-app",
+    "storage_bucket": "usuarios-fire-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393697283475:android:2cf4f5cc3887370a9cec66",
+        "android_client_info": {
+          "package_name": "com.bezerra.usersapp.usuario_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393697283475-ilto32hf9ivq1rd33jhq0t2cjt61l2n9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNFRRlWPif101C7y_X2cdD4gTc7sq41Bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393697283475-ilto32hf9ivq1rd33jhq0t2cjt61l2n9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
