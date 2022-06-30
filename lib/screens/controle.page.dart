@@ -27,7 +27,7 @@ class ControlePage extends StatelessWidget {
             children: const [
               AddUserPage(),
               AllUsers(),
-              FindUser(),
+              FindUserx(),
               Center(child: Text('Página 4'),),
             ],
           ),
