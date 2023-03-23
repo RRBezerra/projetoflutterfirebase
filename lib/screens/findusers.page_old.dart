@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:usuario_firebase/screens/widgets/user.find.dart';
+import 'package:usuario_firebase/screens/widgets/user.find_old.dart';
 import 'package:usuario_firebase/screens/widgets/user.list.dart';
 import '../model/user.model.dart';
 import '../repository/user.repo.dart';
 
-class FindUsers extends StatefulWidget {
-  const FindUsers({Key? key}) : super(key: key);
+class FindUsers_old extends StatefulWidget {
+  const FindUsers_old({Key? key}) : super(key: key);
 
   @override
   _FindUsersState createState() => _FindUsersState();
 }
 
-class _FindUsersState extends State<FindUsers> {
+class _FindUsersState extends State<FindUsers_old> {
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class _FindUsersState extends State<FindUsers> {
                             allusers =snp.data!.docs
                                 .map((doc) =>
                                 User.fromJson(doc.data() as Map<String, dynamic>)).toList();
-                            return FindUsers();
+                            return FindUsers_old();
                           },);
 
 

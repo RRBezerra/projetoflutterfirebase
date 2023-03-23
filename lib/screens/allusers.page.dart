@@ -11,22 +11,28 @@ class AllUsers extends StatefulWidget {
 }
 
 class _AllUsersState extends State<AllUsers> {
+
   @override
   Widget build(BuildContext context) {
     List<User> allusers =[];
 
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('users').orderBy('nome').snapshots(),
-        builder: (context, snp){
-          if (snp.hasError){
+        stream: FirebaseFirestore.instance.collection('users')
+            .orderBy('nome')
+            .snapshots(),
+        builder: (context, snp) {
+          if (snp.hasError) {
             return Center(child: Text('Error'),);
           }
-          if(snp.hasData){
+          if (snp.hasData) {
             allusers = snp.data!.docs
-                .map((doc) => User.fromJson(doc.data() as Map<String, dynamic>)).toList();
-            return ListUsers(users: allusers);
-          }else{
+                .map((doc) =>
+                User.fromJson(doc.data() as Map<String, dynamic>)).toList();
+
+                return ListUsers(users: allusers);
+
+          } else {
             return Center(child: CircularProgressIndicator());
           }
         },

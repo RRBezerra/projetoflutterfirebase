@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:usuario_firebase/repository/user.repo.dart';
 import 'package:usuario_firebase/screens/allusers.page.dart';
 import '../../model/user.model.dart';
@@ -11,6 +12,7 @@ class ListUsers extends StatefulWidget {
   _ListUsersState createState() => _ListUsersState();
 }
 
+
 class _ListUsersState extends State<ListUsers> {
   @override
   Widget build(BuildContext context) {
@@ -18,18 +20,32 @@ class _ListUsersState extends State<ListUsers> {
     final _ctrupdatenome = TextEditingController();
     final _ctrupdateidade = TextEditingController();
 
+    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual);
+
     return ListView.builder(
         itemCount: allusers.length,
         itemBuilder: (context, index){
           return Card(
-              child: ListTile(
+            child: ListTile(
                 leading: CircleAvatar(
                   backgroundColor: Colors.blue,
                   child: Text(allusers[index].nome.substring(0,2).toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
                 title: Text(allusers[index].nome, style: TextStyle(fontSize: 22),),
                 subtitle: Text(allusers[index].idade.toString()),
-                trailing: Row(
+                trailing: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(allusers[index].idade.toString()),
+                      CircleAvatar(
+                        backgroundColor: Colors.blue,
+                        child: Text('1'),
+                        //child: Text(allusers[index].nome.substring(0,2).toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold),),
+                        maxRadius: 10.0,
+                      )
+                    ]
+                )
+                /*trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       TextButton(
@@ -106,10 +122,11 @@ class _ListUsersState extends State<ListUsers> {
                         child: Icon(Icons.delete, size: 32, color: Colors.red,),
                       ),
                     ],
-                )
+                )*/
               ),
           );
         }
     );
+
   }
 }

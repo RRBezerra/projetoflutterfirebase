@@ -4,17 +4,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../model/user.model.dart';
 import '../repository/user.repo.dart';
 
-class FindUsers extends StatefulWidget {
-  const FindUsers({Key? key}) : super(key: key);
+class FindUsers_old_old extends StatefulWidget {
+  const FindUsers_old_old({Key? key}) : super(key: key);
   //String idUsuario;
 
   @override
-  State<FindUsers> createState() => _FindUsersState();
+  State<FindUsers_old_old> createState() => _FindUsersState();
 
   //FindUsers(this.idUsuario)
 }
 
-class _FindUsersState extends State<FindUsers> {
+class _FindUsersState extends State<FindUsers_old_old> {
   TextEditingController nomeTextController = new TextEditingController();
 
   void initState() {

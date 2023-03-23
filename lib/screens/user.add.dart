@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:usuario_firebase/model/user.model.dart';
 import 'package:usuario_firebase/repository/user.repo.dart';
 
@@ -9,45 +11,22 @@ class AddUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _ctrname = TextEditingController();
     final _ctrage = TextEditingController();
+    final pageViewController = PageController();
 
-    return Scaffold(
+    return DefaultTabController(
       //appBar: AppBar(title: Text('Adicionar Usuário'),),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          child:  Column(
-            children:[
-              SizedBox(height: 20,),
-              TextField(
-                controller: _ctrname,
-                style: TextStyle(fontSize: 22),
-                decoration: InputDecoration(
-                  labelText: 'Nome',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))
-                ),
-              ),
-              SizedBox(height: 20,),
-              TextField(
-                controller: _ctrage,
-                style: TextStyle(fontSize: 22),
-                decoration: InputDecoration(
-                    labelText: 'Idade',
-                    border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))
-                ),
-              ),
-              SizedBox(height: 20,),
-              ElevatedButton(
-                  onPressed: (){
-                    final user = User(nome: _ctrname.text, idade: int.parse(_ctrage.text));
-                    addUser(user);
-                    _ctrname.text = '';
-                    _ctrage.text = '';
-                  },
-                  child: Container(width: double.infinity, child: Icon(Icons.add, size: 32,),)),
+      length: 3,
+        child: Scaffold(
+          body: PageView(
+            controller: pageViewController,
+            children: const [
+              Center(child: Text('Página 1'),),
+              Center(child: Text('Página 2'),),
+              Center(child: Text('Página 3'),),
             ],
           ),
+
         ),
-      ),
     );
   }
 }
